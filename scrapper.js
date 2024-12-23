@@ -36,6 +36,7 @@ async function scrapeWebsite(url, mainSelector, selectors) {
             engine: article.querySelector(".param-engine b")?.innerText || null,
             location: article.querySelector(".param-location b")?.innerText || null,
             price: article.querySelector(".item-price")?.innerText || null,
+            link: article.querySelector(".item-link ")?.href || null,
           };
         }),
       );
