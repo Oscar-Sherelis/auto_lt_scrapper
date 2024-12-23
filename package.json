@@ -1,0 +1,18 @@
+{
+  "name": "scrapper",
+  "version": "1.0.0",
+  "description": "Scrapper",
+  "main": "index.js",
+    "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No test script yet\""
+  },
+  "keywords": [
+    "Scrapper"
+  ],
+  "author": "Oscar",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^23.11.1"
+  }
+}
