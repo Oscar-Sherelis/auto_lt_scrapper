@@ -1,14 +1,23 @@
 const scrapper = require("./scrapper");
 
 async function getData(url, car_brand, car_model, data_collected) {
-  const mainSelector = "main"; // Replace with your main section's CSS selector
-  const selectors = "article"; // Replace with your article's CSS selector
+  let mainSelector = "main"; // Replace with your main section's CSS selector
+  let selectors = "article"; // Replace with your article's CSS selector
 
+  if (url.includes("autoplius")) {
+    mainSelector = ".auto-lists";
+    selectors = ".announcement-item";
+  }
   let current_page = 1;
 
   // important autogidas https://autogidas.lt/skelbimai/automobiliai/volkswagen/transporter/?page=2
   // autoplius https://autoplius.lt/skelbimai/naudoti-automobiliai/volkswagen/transporter?page_nr=2
-  let currentUrl = url + car_brand + "/" + car_model + "/?page=" + current_page; // Replace with your target currentUrl
+
+  let page = "/?page=";
+  if (url.includes("autoplius")) {
+    page = "?page_nr=";
+  }
+  let currentUrl = url + car_brand + "/" + car_model + page + current_page; // Replace with your target currentUrl
 
   while (true) {
     console.log(currentUrl);
@@ -32,7 +41,7 @@ async function getData(url, car_brand, car_model, data_collected) {
       // Create a new array and add the new object
       current_page++;
 
-      currentUrl = url + car_brand + "/" + car_model + "/?page=" + current_page;
+      currentUrl = url + car_brand + "/" + car_model + page + current_page;
     } else {
       console.log("Collected data ", data_collected);
       break;

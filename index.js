@@ -7,7 +7,7 @@ let data_collected = [];
 // autoplius https://autoplius.lt/skelbimai/naudoti-automobiliai/volkswagen/transporter?page_nr=2
 (async () => {
   await dataLoader.getData(
-    "https://autogidas.lt/skelbimai/automobiliai/",
+    "https://autoplius.lt/skelbimai/naudoti-automobiliai/",
     "volkswagen",
     "transporter",
     data_collected,
